@@ -1,15 +1,24 @@
 package _03_intro_to_authenticated_APIs;
 
-import javax.swing.*;
+import java.util.List;
+
+import _03_intro_to_authenticated_APIs.data_transfer_objects.Example;
+import _03_intro_to_authenticated_APIs.data_transfer_objects.Property;
 
 public class NewsRunner {
 
     public static void main(String[] args) {
         NewsApi newsApi = new NewsApi();
-        //newsApi.testRequest();
-        String topic = JOptionPane.showInputDialog("Please enter a topic for a news story");
-        String story = newsApi.findStory(topic);
-        System.out.println(story);
+       Example e = newsApi.testRequest();
+      
+      List<Property>  properties =  e.getProperties();
+      for(Property p : properties) {
+    	  System.out.println(p.getAddressRaw() + "\n\t " + p.getPrice());
+      }
+      
+//        String topic = JOptionPane.showInputDialog("Please enter a topic for a news story");
+//        String story = newsApi.findStory(topic);
+//        System.out.println(story);
     }
 
 }
