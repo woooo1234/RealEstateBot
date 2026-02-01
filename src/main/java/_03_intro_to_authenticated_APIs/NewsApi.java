@@ -51,13 +51,13 @@ public class NewsApi {
          */
         Mono<Example> stringMono = webClient.get()
                 .uri(uriBuilder -> uriBuilder
-                		.queryParam("keyword", "New+York,+NY")
+                		.queryParam("keyword", "La Jolla, San Diego, CA")
                 		.queryParam("type", "forSale")
-                		.queryParam("page", "1")
+                		.queryParam("page", "1")               		
                         .build())
                 .retrieve()
                 .bodyToMono(Example.class);
-
+        		.queryParam()
         Example response = stringMono.block();
 
     	return response;
