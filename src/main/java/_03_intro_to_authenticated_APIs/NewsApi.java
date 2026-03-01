@@ -53,11 +53,10 @@ public class NewsApi {
                 .uri(uriBuilder -> uriBuilder
                 		.queryParam("keyword", "La Jolla, San Diego, CA")
                 		.queryParam("type", "forSale")
-                		.queryParam("page", "1")               		
+                		//.queryParam("page", "1")               		
                         .build())
                 .retrieve()
-                .bodyToMono(Example.class);
-        		.queryParam()
+                .bodyToMono(Example.class);        		
         Example response = stringMono.block();
 
     	return response;

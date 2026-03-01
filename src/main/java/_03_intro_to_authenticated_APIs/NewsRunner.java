@@ -10,10 +10,10 @@ public class NewsRunner {
     public static void main(String[] args) {
         NewsApi newsApi = new NewsApi();
        Example e = newsApi.testRequest();
-      
+     System.out.println(e.getSearchInformation().getTotalResults()); 
       List<Property>  properties =  e.getProperties();
       for(Property p : properties) {
-    	  System.out.println(p.getAddressRaw() + "\n\t " + p.getPrice());
+    	  System.out.println(p.getAddressRaw() + "\t\t $" + p.getPrice());
       }
       
 //        String topic = JOptionPane.showInputDialog("Please enter a topic for a news story");
